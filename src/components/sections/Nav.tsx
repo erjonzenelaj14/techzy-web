@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -12,6 +13,7 @@ const links = [
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -19,6 +21,36 @@ const Nav = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const ids = links.map((l) => l.href.slice(1));
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActive(`#${visible[0].target.id}`);
+      },
+      { rootMargin: "-40% 0px -50% 0px", threshold: [0, 0.25, 0.5, 1] },
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const el = document.getElementById(href.slice(1));
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActive(href);
+    }
+  };
 
   return (
     <header
@@ -38,7 +70,13 @@ const Nav = () => {
             <a
               key={l.href}
               href={l.href}
-              className="font-mono text-sm text-muted-foreground hover:text-foreground transition-colors"
+              onClick={(e) => handleNavClick(e, l.href)}
+              className={cn(
+                "font-mono text-sm transition-colors relative",
+                active === l.href
+                  ? "text-foreground after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-px after:bg-primary after:shadow-[0_0_8px_hsl(var(--primary))]"
+                  : "text-muted-foreground hover:text-foreground",
+              )}
             >
               {l.label}
             </a>
@@ -47,7 +85,9 @@ const Nav = () => {
 
         <div className="hidden md:block">
           <Button asChild size="sm" className="rounded-full font-mono">
-            <a href="#contact">Get in touch</a>
+            <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
+              Get in touch
+            </a>
           </Button>
         </div>
 
@@ -63,13 +103,19 @@ const Nav = () => {
                 <a
                   key={l.href}
                   href={l.href}
-                  className="font-mono text-lg text-foreground hover:text-primary transition-colors"
+                  onClick={(e) => handleNavClick(e, l.href)}
+                  className={cn(
+                    "font-mono text-lg transition-colors",
+                    active === l.href ? "text-primary" : "text-foreground hover:text-primary",
+                  )}
                 >
                   {l.label}
                 </a>
               ))}
               <Button asChild className="rounded-full font-mono mt-4">
-                <a href="#contact">Get in touch</a>
+                <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
+                  Get in touch
+                </a>
               </Button>
             </div>
           </SheetContent>
