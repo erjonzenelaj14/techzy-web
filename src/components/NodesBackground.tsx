@@ -123,7 +123,7 @@ const NodesBackground = () => {
     <canvas
       ref={ref}
       aria-hidden
-      className="fixed inset-0 -z-10 pointer-events-none"
+      className="fixed inset-0 z-0 pointer-events-none"
       style={{
         background:
           "radial-gradient(ellipse at 50% 0%, hsl(243 75% 18% / 0.6), transparent 60%), hsl(240 60% 6%)",
