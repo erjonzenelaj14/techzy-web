@@ -59,7 +59,7 @@ const NodesBackground = () => {
       }
 
       // Lines
-      const maxDist = 140;
+      const maxDist = 160;
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i];
@@ -68,9 +68,9 @@ const NodesBackground = () => {
           const dy = a.y - b.y;
           const d = Math.hypot(dx, dy);
           if (d < maxDist) {
-            const alpha = (1 - d / maxDist) * 0.35;
-            ctx.strokeStyle = `hsla(243, 75%, 65%, ${alpha})`;
-            ctx.lineWidth = 0.6;
+            const alpha = (1 - d / maxDist) * 0.7;
+            ctx.strokeStyle = `hsla(243, 90%, 72%, ${alpha})`;
+            ctx.lineWidth = 0.9;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -84,10 +84,10 @@ const NodesBackground = () => {
         const dx = n.x - mouse.x;
         const dy = n.y - mouse.y;
         const d = Math.hypot(dx, dy);
-        if (d < 180) {
-          const alpha = (1 - d / 180) * 0.6;
-          ctx.strokeStyle = `hsla(250, 90%, 75%, ${alpha})`;
-          ctx.lineWidth = 0.8;
+        if (d < 200) {
+          const alpha = (1 - d / 200) * 0.85;
+          ctx.strokeStyle = `hsla(250, 95%, 80%, ${alpha})`;
+          ctx.lineWidth = 1.1;
           ctx.beginPath();
           ctx.moveTo(n.x, n.y);
           ctx.lineTo(mouse.x, mouse.y);
@@ -97,11 +97,14 @@ const NodesBackground = () => {
 
       // Nodes
       for (const n of nodes) {
-        ctx.fillStyle = "hsla(243, 80%, 75%, 0.85)";
+        ctx.fillStyle = "hsla(243, 90%, 80%, 1)";
+        ctx.shadowColor = "hsla(243, 90%, 70%, 0.9)";
+        ctx.shadowBlur = 8;
         ctx.beginPath();
-        ctx.arc(n.x, n.y, 1.6, 0, Math.PI * 2);
+        ctx.arc(n.x, n.y, 2.2, 0, Math.PI * 2);
         ctx.fill();
       }
+      ctx.shadowBlur = 0;
 
       raf = requestAnimationFrame(tick);
     };
