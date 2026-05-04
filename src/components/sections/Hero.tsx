@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -19,15 +19,9 @@ const Hero = () => {
 
       <div className="container relative z-10 py-32">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 backdrop-blur px-4 py-1.5 mb-8 animate-fade-in">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-            </span>
-            <span className="font-mono text-xs tracking-wide text-muted-foreground">
-              Engineering studio — est. 2019
-            </span>
-          </div>
+          <p className="font-mono text-sm text-primary mb-6 animate-fade-in">
+            {"// Engineering studio — est. 2019"}
+          </p>
           <h1 className="font-mono font-semibold text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-gradient animate-fade-up">
             We build software<br />that ships.
           </h1>
@@ -36,7 +30,7 @@ const Hero = () => {
             for teams that care about craft.
           </p>
           <div className="mt-10 flex flex-wrap gap-4 animate-fade-up [animation-delay:240ms]">
-            <Button asChild size="lg" className="rounded-full font-mono shadow-[0_0_40px_-10px_hsl(var(--primary)/0.6)] hover:shadow-[0_0_60px_-5px_hsl(var(--primary)/0.8)] transition-shadow">
+            <Button asChild size="lg" className="rounded-full font-mono">
               <a href="#services">
                 See what we do <ArrowRight className="ml-2 h-4 w-4" />
               </a>
@@ -45,18 +39,12 @@ const Hero = () => {
               asChild
               size="lg"
               variant="outline"
-              className="rounded-full font-mono border-border bg-card/40 backdrop-blur hover:bg-card hover:border-primary/60"
+              className="rounded-full font-mono border-border bg-transparent hover:bg-card"
             >
-              <a href="#contact"><Sparkles className="mr-2 h-4 w-4" /> Start a project</a>
+              <a href="#contact">Start a project</a>
             </Button>
           </div>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 animate-fade-in [animation-delay:600ms]">
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">scroll</span>
-        <div className="h-10 w-px bg-gradient-to-b from-primary to-transparent" />
       </div>
 
       {/* Bottom fade */}
