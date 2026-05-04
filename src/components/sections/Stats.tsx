@@ -47,7 +47,7 @@ const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
 
 const Stats = () => {
   return (
-    <section className="border-y border-border bg-card/40">
+    <section className="border-y border-border/60 bg-card/30 backdrop-blur-sm">
       <div className="container py-16 grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((s) => (
           <div key={s.label} className="flex flex-col gap-2">
