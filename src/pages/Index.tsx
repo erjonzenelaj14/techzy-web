@@ -11,7 +11,7 @@ import NodesBackground from "@/components/NodesBackground";
 
 const Index = () => {
   return (
-    <main className="relative min-h-screen bg-background text-foreground overflow-hidden">
+    <main className="relative min-h-screen text-foreground overflow-hidden">
       <NodesBackground />
       <Nav />
       <Hero />
