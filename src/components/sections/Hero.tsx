@@ -1,54 +1,39 @@
-import { ArrowRight, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section
-      id="top"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
-      <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full animate-orb-pulse pointer-events-none blur-3xl opacity-70"
-        style={{ background: "var(--gradient-orb)" }}
-        aria-hidden
-      />
-
-      <div className="container relative z-10 py-32 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md font-mono text-xs text-primary mb-8 animate-fade-in">
-          <Sparkles className="h-3.5 w-3.5" />
-          <span>Engineering studio · shipping since 2019</span>
+    <section id="top" className="relative min-h-screen flex flex-col justify-end pb-16 md:pb-24">
+      <div className="container">
+        {/* Top status row */}
+        <div className="flex items-center justify-between mb-16 md:mb-32 mt-32 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+            </span>
+            <span>Available · Q3 2026</span>
+          </div>
+          <div className="hidden md:block">EST · 2019</div>
+          <div className="hidden md:block">v.04</div>
         </div>
 
-        <h1 className="mx-auto max-w-5xl font-mono font-semibold text-5xl md:text-7xl lg:text-8xl leading-[1.02] tracking-tight text-gradient animate-fade-up">
-          Software that thinks.<br />
-          <span className="text-primary">Systems that scale.</span>
-        </h1>
-
-        <p className="mx-auto mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed animate-fade-up [animation-delay:120ms]">
-          A small senior team designing and engineering web, mobile, and AI
-          products for teams that care about craft.
-        </p>
-
-        <div className="mt-10 flex flex-wrap justify-center gap-4 animate-fade-up [animation-delay:240ms]">
-          <Button asChild size="lg" className="rounded-full font-mono shadow-[0_0_40px_-8px_hsl(var(--primary))]">
-            <a href="#services">
-              Explore our work <ArrowRight className="ml-2 h-4 w-4" />
+        {/* Headline grid */}
+        <div className="grid grid-cols-12 gap-6 items-end">
+          <div className="col-span-12 lg:col-span-8">
+            <h1 className="font-mono font-medium text-[11vw] md:text-[7.5vw] leading-[0.95] tracking-tighter">
+              <span className="block text-foreground">Engineering</span>
+              <span className="block text-primary italic font-light">precision</span>
+              <span className="block text-foreground">at speed.</span>
+            </h1>
+          </div>
+          <div className="col-span-12 lg:col-span-4 flex flex-col gap-6 lg:pb-6">
+            <p className="font-sans text-base md:text-lg text-muted-foreground leading-relaxed max-w-sm">
+              TechZy is an engineering studio crafting resilient web, mobile and AI systems for teams that ship.
+            </p>
+            <a href="#work" className="group inline-flex items-center gap-3 font-mono text-sm uppercase tracking-widest text-foreground w-fit">
+              <span className="border-b border-primary/40 pb-1 group-hover:border-primary transition-colors">Browse capabilities</span>
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="rounded-full font-mono border-primary/30 bg-background/40 backdrop-blur-md hover:bg-primary/10 hover:text-foreground"
-          >
-            <a href="#contact">Start a project</a>
-          </Button>
-        </div>
-
-        <div className="mt-24 flex justify-center animate-fade-in [animation-delay:600ms]">
-          <div className="flex flex-col items-center gap-2 text-muted-foreground/60 font-mono text-xs">
-            <span>scroll</span>
-            <div className="w-px h-10 bg-gradient-to-b from-primary/60 to-transparent" />
           </div>
         </div>
       </div>

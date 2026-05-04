@@ -1,71 +1,54 @@
-import {
-  Code2,
-  Smartphone,
-  Sparkles,
-  Cloud,
-  Plug,
-  Compass,
-} from "lucide-react";
+import { Code2, Sparkles, Cloud, Smartphone, Plug, Compass } from "lucide-react";
 
 const services = [
-  {
-    icon: Code2,
-    title: "Web Applications",
-    description: "Production-grade React, TypeScript, and Node systems built to scale and last.",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile Apps",
-    description: "Native-feeling iOS and Android apps with React Native and Swift / Kotlin where it matters.",
-  },
-  {
-    icon: Sparkles,
-    title: "AI & Automation",
-    description: "LLM-powered features, RAG pipelines, and automations that remove real work from real teams.",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & DevOps",
-    description: "AWS, GCP, and Kubernetes infrastructure that's observable, repeatable, and quiet at 3am.",
-  },
-  {
-    icon: Plug,
-    title: "APIs & Integrations",
-    description: "Robust REST and GraphQL APIs and integrations with the systems your business already runs on.",
-  },
-  {
-    icon: Compass,
-    title: "Technical Consulting",
-    description: "Architecture reviews, team augmentation, and pragmatic guidance from senior engineers.",
-  },
+  { n: "01", icon: Code2, title: "Web Platforms", tags: ["React", "Next", "Node"], desc: "Production web systems built on a senior TypeScript foundation." },
+  { n: "02", icon: Sparkles, title: "Applied AI", tags: ["LLMs", "RAG", "Evals"], desc: "LLM features and retrieval pipelines that survive contact with real users." },
+  { n: "03", icon: Smartphone, title: "Mobile", tags: ["iOS", "Android", "RN"], desc: "Native-feel apps with React Native — Swift / Kotlin where it matters." },
+  { n: "04", icon: Cloud, title: "Cloud & DevOps", tags: ["AWS", "GCP", "K8s"], desc: "Observable infrastructure that's quiet at 3am and cheap to run." },
+  { n: "05", icon: Plug, title: "APIs & Integrations", tags: ["REST", "GraphQL", "Stripe"], desc: "Clean interfaces between the systems your business already lives on." },
+  { n: "06", icon: Compass, title: "Consulting", tags: ["Audits", "Architecture"], desc: "Senior eyes on hard decisions — without the agency overhead." },
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="py-32 relative">
+    <section id="work" className="py-32 md:py-40">
       <div className="container">
-        <div className="max-w-2xl mb-16">
-          <p className="font-mono text-sm text-primary mb-4">{"// 01 — services"}</p>
-          <h2 className="font-mono text-4xl md:text-5xl font-semibold tracking-tight">
-            What we build
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            End-to-end product engineering across the stack. Pick a slice or hand us the whole thing.
-          </p>
+        <div className="grid grid-cols-12 gap-6 mb-20">
+          <div className="col-span-12 lg:col-span-4">
+            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-4">— Capabilities</p>
+          </div>
+          <div className="col-span-12 lg:col-span-8">
+            <h2 className="font-mono text-4xl md:text-6xl font-medium tracking-tighter leading-[1.05]">
+              Six disciplines.<br />
+              <span className="text-muted-foreground italic font-light">One senior team.</span>
+            </h2>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden">
-          {services.map((s) => (
-            <div
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-border/60">
+          {services.map((s, i) => (
+            <article
               key={s.title}
-              className="group bg-background hover:bg-card transition-colors p-8 flex flex-col gap-4"
+              className={
+                "group relative p-8 md:p-10 border-b border-border/60 transition-colors hover:bg-card/40 " +
+                ((i % 3 !== 2) ? "lg:border-r " : "") +
+                ((i % 2 === 0) ? "md:border-r lg:border-r " : "")
+              }
             >
-              <div className="w-12 h-12 rounded-lg bg-card border border-border flex items-center justify-center group-hover:border-primary group-hover:bg-primary/10 transition-colors">
-                <s.icon className="h-5 w-5 text-primary" />
+              <div className="flex items-start justify-between mb-12">
+                <span className="font-mono text-xs text-muted-foreground/60 tracking-widest">{s.n}</span>
+                <s.icon className="h-5 w-5 text-primary/80 group-hover:text-primary transition-colors" strokeWidth={1.5} />
               </div>
-              <h3 className="font-mono text-xl font-semibold">{s.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{s.description}</p>
-            </div>
+              <h3 className="font-mono text-2xl font-medium mb-4 tracking-tight">{s.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-xs">{s.desc}</p>
+              <div className="flex flex-wrap gap-2">
+                {s.tags.map((t) => (
+                  <span key={t} className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full border border-border/60 text-muted-foreground">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </div>
