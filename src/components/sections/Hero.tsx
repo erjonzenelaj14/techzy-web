@@ -5,7 +5,7 @@ const Hero = () => {
     <section id="top" className="relative min-h-screen flex flex-col justify-end pb-16 md:pb-24">
       <div className="container px-6 md:px-8">
         {/* Top status row */}
-        <div className="flex items-center justify-between mb-8 md:mb-12 mt-24 md:mt-28 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+        <div className="flex items-center justify-between mb-8 sm:mb-10 md:mb-12 mt-24 sm:mt-26 md:mt-28 font-mono text-xs uppercase tracking-widest text-muted-foreground">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
