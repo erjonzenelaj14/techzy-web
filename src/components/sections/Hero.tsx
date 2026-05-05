@@ -3,9 +3,9 @@ import { ArrowUpRight } from "lucide-react";
 const Hero = () => {
   return (
     <section id="top" className="relative min-h-screen flex flex-col justify-end pb-16 md:pb-24">
-      <div className="container">
+      <div className="container px-6 md:px-8">
         {/* Top status row */}
-        <div className="flex items-center justify-between mb-6 md:mb-12 mt-24 md:mt-28 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+        <div className="flex items-center justify-between mb-8 md:mb-12 mt-24 md:mt-28 font-mono text-xs uppercase tracking-widest text-muted-foreground">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
@@ -18,7 +18,7 @@ const Hero = () => {
         </div>
 
         {/* Headline grid */}
-        <div className="grid grid-cols-12 gap-6 items-end">
+        <div className="grid grid-cols-12 gap-4 md:gap-6 items-end">
           <div className="col-span-12 lg:col-span-8">
             <h1 className="font-mono font-medium text-[11vw] md:text-[7.5vw] leading-[0.95] tracking-tighter">
               <span className="block text-foreground">Engineering</span>
