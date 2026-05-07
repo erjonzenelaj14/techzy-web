@@ -1,12 +1,12 @@
-import { Code2, Sparkles, Cloud, Smartphone, Plug, Compass } from "lucide-react";
+import { Server, Code2, Smartphone, Database, Cloud, Plug } from "lucide-react";
 
 const services = [
-  { n: "01", icon: Code2, title: "Web Platforms", tags: ["React", "Next", "Node"], desc: "Production web systems built on a senior TypeScript foundation." },
-  { n: "02", icon: Sparkles, title: "Applied AI", tags: ["LLMs", "RAG", "Evals"], desc: "LLM features and retrieval pipelines that survive contact with real users." },
-  { n: "03", icon: Smartphone, title: "Mobile", tags: ["iOS", "Android", "RN"], desc: "Native-feel apps with React Native — Swift / Kotlin where it matters." },
-  { n: "04", icon: Cloud, title: "Cloud & DevOps", tags: ["AWS", "GCP", "K8s"], desc: "Observable infrastructure that's quiet at 3am and cheap to run." },
-  { n: "05", icon: Plug, title: "APIs & Integrations", tags: ["REST", "GraphQL", "Stripe"], desc: "Clean interfaces between the systems your business already lives on." },
-  { n: "06", icon: Compass, title: "Consulting", tags: ["Audits", "Architecture"], desc: "Senior eyes on hard decisions — without the agency overhead." },
+  { n: "01", icon: Server, title: "Backend", tags: [".NET", "Java", "Python"], desc: "Robust server-side systems engineered for scale, security and long-term maintainability." },
+  { n: "02", icon: Code2, title: "Frontend", tags: ["Angular", "React", "Next.js"], desc: "Modern web interfaces built with the frameworks shaping today's product landscape." },
+  { n: "03", icon: Smartphone, title: "Mobile", tags: ["Ionic", "Angular", "React Native"], desc: "Cross-platform mobile apps that feel native on both iOS and Android." },
+  { n: "04", icon: Database, title: "Databases", tags: ["PostgreSQL", "SQL Server"], desc: "Relational data layers designed for performance, integrity and clean evolution." },
+  { n: "05", icon: Cloud, title: "Cloud", tags: ["Azure", "AWS"], desc: "Cloud-native infrastructure across the two ecosystems enterprises actually run on." },
+  { n: "06", icon: Plug, title: "Integrations", tags: ["Magento", "Shopify"], desc: "E-commerce integrations that connect your storefront to the systems behind it." },
 ];
 
 const Services = () => {
