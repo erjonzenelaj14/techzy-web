@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
 import { Server, Code2, Smartphone, Database, Cloud, Plug } from "lucide-react";
+import { routes } from "@/lib/seo";
 
 const services = [
-  { n: "01", icon: Server, title: "Backend", tags: [".NET", "Java", "Python"], desc: "Robust server-side systems engineered for scale, security and long-term maintainability." },
-  { n: "02", icon: Code2, title: "Frontend", tags: ["Angular", "React", "Next.js"], desc: "Modern web interfaces built with the frameworks shaping today's product landscape." },
+  { n: "01", icon: Server, title: "Backend", tags: [".NET", "Java", "Python", "Node.js"], desc: "API development and robust server-side systems—Node.js services, secure integrations, and foundations that scale with your SaaS roadmap." },
+  { n: "02", icon: Code2, title: "Frontend", tags: ["Angular", "React", "Next.js"], desc: "Responsive websites and product UIs with Next.js, React, and modern tooling—fast, accessible, and ready for growth." },
   { n: "03", icon: Smartphone, title: "Mobile", tags: ["Ionic", "Angular", "React Native"], desc: "Cross-platform mobile apps that feel native on both iOS and Android." },
   { n: "04", icon: Database, title: "Databases", tags: ["PostgreSQL", "SQL Server"], desc: "Relational data layers designed for performance, integrity and clean evolution." },
-  { n: "05", icon: Cloud, title: "Cloud", tags: ["Azure", "AWS"], desc: "Cloud-native infrastructure across the two ecosystems enterprises actually run on." },
-  { n: "06", icon: Plug, title: "Integrations", tags: ["Magento", "Shopify"], desc: "E-commerce integrations that connect your storefront to the systems behind it." },
+  { n: "05", icon: Cloud, title: "Cloud", tags: ["Azure", "AWS"], desc: "AWS development, DevOps services, and cloud-native architecture—pipelines, deployments, and runbooks your team can trust." },
+  { n: "06", icon: Plug, title: "Integrations", tags: ["Magento", "Shopify"], desc: "AI automation and AI agents wired to your APIs—plus Magento, Shopify, and legacy systems that need to stay in sync." },
 ];
 
 const Services = () => {
@@ -15,9 +17,23 @@ const Services = () => {
       <div className="container">
         <div className="grid grid-cols-12 gap-6 mb-20">
           <div className="col-span-12 lg:col-span-4">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-4">— Capabilities</p>
+            <h2 className="font-mono text-xs uppercase tracking-widest text-primary mb-4">Core capabilities</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              We specialize in AI agents, AI automation, API development, AWS development, DevOps services, and Next.js,
+              Node.js, and React development for responsive websites and SaaS platforms. See how we frame engagements on
+              our{" "}
+              <Link to={routes.softwareEngineeringStudio} className="text-primary hover:underline font-mono text-[13px]">
+                software engineering studio
+              </Link>{" "}
+              page, or open the dedicated{" "}
+              <Link to={routes.services} className="text-primary hover:underline font-mono text-[13px]">
+                services
+              </Link>{" "}
+              URL for crawlers.
+            </p>
           </div>
           <div className="col-span-12 lg:col-span-8">
+            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground/80 mb-4">— Studio delivery</p>
             <h2 className="font-mono text-4xl md:text-6xl font-medium tracking-tighter leading-[1.05]">
               Six disciplines.<br />
               <span className="text-muted-foreground italic font-light">One senior team.</span>
