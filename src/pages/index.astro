@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav';
+import Hero from '../components/Hero';
+import Work from '../components/Work';
+import Services from '../components/Services';
+import Testimonials from '../components/Testimonials';
+import Footer from '../components/Footer';
+import HowWeShip from '../components/HowWeShip';
+---
+
+<Layout>
+  <Nav client:load />
+  <main>
+    <Hero client:load />
+    <Work client:load />
+    <Services client:load />
+    <HowWeShip client:load />
+    <Testimonials client:load />
+  </main>
+  <Footer client:load />
+</Layout>
+
+<script>
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  function observeReveals() {
+    document.querySelectorAll('.reveal:not(.in)').forEach((el) => io.observe(el));
+  }
+
+  // Delay until after React hydration completes
+  window.addEventListener('load', () => {
+    requestAnimationFrame(() => {
+      observeReveals();
+      // Watch for late-mounting client:only components
+      new MutationObserver(() => observeReveals())
+        .observe(document.body, { childList: true, subtree: true });
+    });
+  });
+</script>
