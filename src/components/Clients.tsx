@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 
 export default function Clients() {
-  const names = ["ALEX LARSEN", "MAYA RAO", "JULIEN PEREIRA", "SANA KIM", "TECHZY STUDIO", ".NET", "REACT", "AWS", "AI AGENTS"];
+  const names = ["REACT", "NODE.JS", "AWS", "AI AGENTS", ".NET", "NEXT.JS", "POSTGRESQL", "DEVOPS", "AZURE"];
   const doubled = [...names, ...names];
 
   return (

@@ -19,9 +19,9 @@ export default function Hero() {
           </div>
         </div>
         <div className="meta-right">
-          <div className="eyebrow">[ Available · Q3 2026 ]</div>
+          <div className="eyebrow">[ Accepting projects ]</div>
           <div className="eyebrow" style={{ opacity: 0.6 }}>
-            v.2026.05
+            US Eastern
           </div>
         </div>
       </div>

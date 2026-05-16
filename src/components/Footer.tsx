@@ -21,15 +21,14 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Elsewhere</h4>
           <ul>
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">X / Twitter</a></li>
+            <li><a href="https://github.com/erjonzenelaj14" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/erjonzenelaj/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h4>Currently</h4>
-          <div className="status"><span className="pulse"></span> Booking Q3 2026</div>
+          <div className="status"><span className="pulse"></span> Accepting projects</div>
           <div style={{ marginTop: 14, fontFamily: "JetBrains Mono, monospace", fontSize: 12, color: "var(--muted)", lineHeight: 1.6 }}>
             Remote · EU / US<br />
             Engineered with care
